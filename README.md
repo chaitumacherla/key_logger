@@ -6,5 +6,5 @@ There are two different types of keyloggers. They are:
 
 2.Remote Keylogger: It records the keys entered in target computer for a specific timeinterval.
 
-Here, we are trying create a keylogger for a specific timeinterval.
+Here, we are trying create a remote keylogger for a specific timeinterval.
 
